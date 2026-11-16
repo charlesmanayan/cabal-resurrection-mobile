@@ -5,7 +5,7 @@
   "apk": {
     "url": "http://13.140.249.12/mobile-lab/CABAL-RESURRECTION-ARM64-v0.18.0-TEST.apk",
     "bytes": 109150219,
-    "sha256": "9c48d3437abe8551c64375a9ce11297b2113ca7fcf45537128f7159d9b7c9922"
+    "sha256": "1c18d140438800a1f89c3ef5d44054dc93388342f42c7680525a69c8b504e134"
   },
   "x86_64": {
     "data": {
