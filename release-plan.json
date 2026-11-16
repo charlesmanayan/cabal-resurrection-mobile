@@ -4,7 +4,7 @@
   "apk": {
     "url": "http://13.140.249.12/mobile-lab/CABAL-RESURRECTION-0.17.0-x86_64.apk",
     "bytes": 102285085,
-    "sha256": "c52049f579301997a002e3d395db448d55150b144684103e3263c8804a70695e"
+    "sha256": "28ecaf4418b30f50be1ce1c79e7f680bf3b0533e6c61b1063e2d957da2abb1f9"
   },
   "x86_64": {
     "data": {
@@ -16,13 +16,22 @@
     "engine": {
       "url": "http://13.140.249.12/mobile-lab/resurrection-v17-x86_64-libmain.so",
       "bytes": 42790912,
-      "sha256": "e9671003f9a89bf0c7a07c20fb19bd593ba600702da22b9e0dae6d764076eb49"
+      "sha256": "e35bc1d1758c94b4b60500704761b78e24adcaba7a6d9d7c653bcce33f63b9f3"
     }
   },
-  "verified": false,
+  "verified": true,
   "tag": "v0.17.0-lab-x86_64",
-  "pending": [
-    "Fresh installation test",
-    "Native v17 lab login test"
-  ]
+  "pending": [],
+  "validation": {
+    "date": "2026-11-16",
+    "scope": "EP36 test only",
+    "cleanInstall": true,
+    "resumeAcrossApkUpdate": true,
+    "libraryOnlyUpdate": true,
+    "normalAuthentication": true,
+    "worldEntry": "Bloody Ice / EpMobile01",
+    "touchMovement": true,
+    "renderer": "swangle",
+    "arm64PhoneBuild": false
+  }
 }
