@@ -1,20 +1,30 @@
-# CABAL RESURRECTION — mobile test client
+# CABAL RESURRECTION mobile — EP36 testing
 
-Android launcher and release channel for the operator's EP36 test server.
+[Download the x86_64 test prerelease](https://github.com/charlesmanayan/cabal-resurrection-mobile/releases/tag/v0.17.0-lab-x86_64)
 
-## Current status
+This prerelease is for compatible x86_64 Android emulators. The ARM64 phone port is in progress; a phone build has not been validated or released.
 
-The tested engine is x86_64. An ARM64 phone port is not ready. No verified automatic-download APK release has been published yet.
+## Install
 
-Verified in the original lab: login, character selection, movement/combat, outgoing whisper, buddy acceptance, party join/member updates, and outgoing party chat. General auto quest and additional game systems remain under test.
+1. Download `CABAL-RESURRECTION-x86_64.apk` from the release assets and install it.
+2. Open CABAL RESURRECTION. Allow approximately 20 GB of free space for initial setup. The app automatically downloads about 5.7 GB and installs about 11.4 GB of game files.
+3. Interrupted downloads resume when reopened. Files and the game library are checked with SHA-256 before Play is enabled.
+4. Use the privately provided EP36 lab account for EpMobile01. The current bridge accepts the dedicated moblab-prefixed account. Use one test session at a time.
 
-## Planned distribution
+Credentials, PINs and signing keys are never included in this repository. Future APK updates use Android's normal installation approval. Library updates reuse installed game data when its checksum is unchanged.
 
-- Versioned, signed test APKs in GitHub Releases.
-- A version/checksum manifest used by the Android updater.
-- Automatic native-library and game-data downloads from the EP36 test host.
-- Android's normal installation confirmation for APK updates.
+## Verified
 
-Only selected launcher source and release metadata belong in this repository. Account passwords, PINs, session tokens, server administration credentials and signing keys must not be committed.
+Clean installation on an Android 15 x86_64 emulator, interrupted-download recovery across APK updates, archive verification/extraction, library-only update, normal server authentication, EpMobile01 character loading, Bloody Ice world entry and touch-joystick movement. App installation and the login bridge required no root access. Software rendering (`swangle`) was used for world validation.
 
-This repository does not contain the original game's full source project.
+The login form contains Username, Password and Login only.
+
+## Current limits
+
+- ARM64 native compatibility work is ongoing. This APK contains x86_64 native code.
+- The Android Studio host-GPU renderer produced a white title screen; the software renderer displayed the world. LDPlayer itself still needs testing.
+- Some native UI text is clipped, and the native title still contains the previous branding.
+- Incoming whisper display, mail and general autoquest remain unverified or incomplete. Earlier dedicated-character tests confirmed outgoing whisper, buddy acceptance, party joining and outgoing party chat.
+- Compatibility adapters are currently validated for the dedicated lab character, not general accounts and characters.
+
+This is an experimental test client, not a complete mobile port. It targets only the EP36 test environment. Production server configuration and databases were not changed for this release.
