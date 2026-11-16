@@ -1,11 +1,11 @@
 {
-  "status": "preparing",
+  "status": "ready",
   "versionCode": 170001,
   "versionName": "0.17.0-lab-x86_64",
   "apk": {
     "url": "http://13.140.249.12/mobile-lab/CABAL-RESURRECTION-0.17.0-x86_64.apk",
     "bytes": 102285085,
-    "sha256": "e58f18af1b3b3f64ddad97853a0c7a7bf19b6433a76fff8b32d321e7d7a98e0a"
+    "sha256": "c52049f579301997a002e3d395db448d55150b144684103e3263c8804a70695e"
   },
   "x86_64": {
     "data": {
@@ -19,5 +19,7 @@
       "bytes": 42790912,
       "sha256": "e9671003f9a89bf0c7a07c20fb19bd593ba600702da22b9e0dae6d764076eb49"
     }
-  }
+  },
+  "validationOnly": true,
+  "gameLoginVerified": false
 }
