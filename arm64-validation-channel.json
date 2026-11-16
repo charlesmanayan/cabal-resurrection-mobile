@@ -4,8 +4,8 @@
   "versionName": "0.17.0-lab-x86_64",
   "apk": {
     "url": "http://13.140.249.12/mobile-lab/CABAL-RESURRECTION-ARM64-CANDIDATE.apk",
-    "bytes": 102301545,
-    "sha256": "411e94f9d9c33b830c32797d84868ea38a109a9afe891669be10e78f8e886757"
+    "bytes": 111554567,
+    "sha256": "b7f64db3bc9d84b876ec2025a8dd6acdf237d1c24abca87c1ca022f9c1d1d923"
   },
   "x86_64": {
     "data": {
@@ -36,10 +36,11 @@
       "sha256": "5ab801e276dfbc2ae725a19987b1138ed127409c9d5fbe1bf5e0494cc87d5b45"
     },
     "libraries": {
-      "bytes": 6007026,
-      "sha256": "5b38f9d28c069e58806c009403484432d3a674d7ef29acb96d305c0a0e8f87d7",
-      "unpackedBytes": 17824480,
+      "bytes": 338073292,
+      "sha256": "c8a32b73c5e4c84d1e4063237109b65b4a13eeacd4c47231f919473fbca16de8",
+      "unpackedBytes": 415337233,
       "url": "http://13.140.249.12/mobile-lab/arm64-game-libraries.tar.gz"
     }
   }
 }
+
