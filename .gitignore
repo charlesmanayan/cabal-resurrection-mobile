@@ -1,0 +1,12 @@
+*.jks
+*.keystore
+*signing*secret*
+*account*.json
+*credentials*
+*.apk
+*.so
+*.tar.gz
+*.partial
+local.properties
+build/
+.gradle/
