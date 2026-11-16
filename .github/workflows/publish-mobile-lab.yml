@@ -24,6 +24,16 @@ jobs:
               print('Release remains blocked until fresh-install and lab login validation pass.')
               raise SystemExit(0)
           assert re.fullmatch(r'v[0-9]+\.[0-9]+\.[0-9]+-lab-x86_64', p['tag'])
+          assert isinstance(p['versionCode'], int) and p['versionCode'] > 0
+          assert isinstance(p['versionName'], str)
+          runtime = p['x86_64']
+          for key in ('data', 'engine'):
+              asset = runtime[key]
+              assert asset['url'].startswith('http://13.140.249.12/mobile-lab/')
+              assert re.fullmatch(r'[0-9a-f]{64}', asset['sha256']) and asset['bytes'] > 0
+              with urllib.request.urlopen(urllib.request.Request(asset['url'], method='HEAD'), timeout=30) as response:
+                  assert int(response.headers['Content-Length']) == asset['bytes']
+          assert runtime['data']['unpackedBytes'] > 8 * 1024**3
           a = p['apk']
           assert a['url'].startswith('http://13.140.249.12/mobile-lab/')
           assert re.fullmatch(r'[0-9a-f]{64}', a['sha256']) and 0 < a['bytes'] < 2000000000
@@ -47,3 +57,19 @@ jobs:
           TAG: ${{ steps.plan.outputs.tag }}
         run: |
           gh release create "$TAG" CABAL-RESURRECTION-x86_64.apk SHA256SUMS.txt --prerelease --title "CABAL RESURRECTION EP36 emulator lab" --notes "x86_64 Android emulator test only. ARM64 phones are not supported. Connects only to the EP36 test environment. See README for current limitations."
+      - name: Publish automatic update channel
+        if: steps.plan.outputs.ready == 'true'
+        shell: python
+        run: |
+          import json, os, subprocess
+          from pathlib import Path
+          p = json.loads(Path('release-plan.json').read_text())
+          apk = dict(p['apk'])
+          apk['url'] = 'https://github.com/' + os.environ['GITHUB_REPOSITORY'] + '/releases/download/' + p['tag'] + '/CABAL-RESURRECTION-x86_64.apk'
+          channel = dict(status='ready', versionCode=p['versionCode'], versionName=p['versionName'], apk=apk, x86_64=p['x86_64'])
+          Path('channel.json').write_text(json.dumps(channel, indent=2) + '\n')
+          subprocess.run(['git','config','user.name','github-actions[bot]'],check=True)
+          subprocess.run(['git','config','user.email','41898282+github-actions[bot]@users.noreply.github.com'],check=True)
+          subprocess.run(['git','add','channel.json'],check=True)
+          subprocess.run(['git','commit','-m','Publish verified mobile lab update channel'],check=True)
+          subprocess.run(['git','push'],check=True)
