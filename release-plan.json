@@ -1,13 +1,27 @@
 {
-  "verified": false,
-  "tag": "v0.17.0-lab-x86_64",
+  "versionCode": 170001,
+  "versionName": "0.17.0-lab-x86_64",
   "apk": {
     "url": "http://13.140.249.12/mobile-lab/CABAL-RESURRECTION-0.17.0-x86_64.apk",
     "bytes": 102285085,
-    "sha256": "68808a50d224ddf602a576b5e6de0248600a2ef8717e2a46a316184f2d0cb27a"
+    "sha256": "c52049f579301997a002e3d395db448d55150b144684103e3263c8804a70695e"
   },
+  "x86_64": {
+    "data": {
+      "url": "http://13.140.249.12/mobile-lab/runtime-v16-public.tar.gz",
+      "bytes": 5706587559,
+      "sha256": "1baf446ea5a7c71e33776d8913a0d6a938fe388cd60f90cdf7298f9c012c9214",
+      "unpackedBytes": 11392339789
+    },
+    "engine": {
+      "url": "http://13.140.249.12/mobile-lab/resurrection-v17-x86_64-libmain.so",
+      "bytes": 42790912,
+      "sha256": "e9671003f9a89bf0c7a07c20fb19bd593ba600702da22b9e0dae6d764076eb49"
+    }
+  },
+  "verified": false,
+  "tag": "v0.17.0-lab-x86_64",
   "pending": [
-    "Complete public runtime archive validation",
     "Fresh installation test",
     "Native v17 lab login test"
   ]
