@@ -1,6 +1,23 @@
 {
-  "status": "preparing",
+  "status": "ready",
   "versionCode": 170001,
   "versionName": "0.17.0-lab-x86_64",
-  "message": "CABAL RESURRECTION EP36 emulator lab build is being verified. ARM64 phone support is not yet released."
+  "apk": {
+    "url": "https://github.com/charlesmanayan/cabal-resurrection-mobile/releases/download/v0.17.0-lab-x86_64/CABAL-RESURRECTION-x86_64.apk",
+    "bytes": 102285085,
+    "sha256": "28ecaf4418b30f50be1ce1c79e7f680bf3b0533e6c61b1063e2d957da2abb1f9"
+  },
+  "x86_64": {
+    "data": {
+      "url": "http://13.140.249.12/mobile-lab/runtime-v16-public.tar.gz",
+      "bytes": 5706587559,
+      "sha256": "1baf446ea5a7c71e33776d8913a0d6a938fe388cd60f90cdf7298f9c012c9214",
+      "unpackedBytes": 11392339789
+    },
+    "engine": {
+      "url": "http://13.140.249.12/mobile-lab/resurrection-v17-x86_64-libmain.so",
+      "bytes": 42790912,
+      "sha256": "e35bc1d1758c94b4b60500704761b78e24adcaba7a6d9d7c653bcce33f63b9f3"
+    }
+  }
 }
