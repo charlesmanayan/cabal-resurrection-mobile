@@ -33,14 +33,15 @@
     "engine": {
       "url": "http://13.140.249.12/mobile-lab/arm64-ep36-candidate.so",
       "bytes": 37945344,
-      "sha256": "5ab801e276dfbc2ae725a19987b1138ed127409c9d5fbe1bf5e0494cc87d5b45"
+      "sha256": "3b56c21edd864904c42d55becc80b46c47fe28ffc1cc98480f483d65a0fa94b8"
     },
     "libraries": {
       "bytes": 338073581,
       "sha256": "b8038c35ffcc4d450e2274f02828421215291a11037408bedcf6bd79b526ec9f",
       "unpackedBytes": 415337376,
       "url": "http://13.140.249.12/mobile-lab/arm64-game-libraries.tar.gz"
-    }
+    },
+    "audioPlaybackDisabled": true
   }
 }
 
