@@ -1,0 +1,49 @@
+name: Publish verified mobile lab APK
+on:
+  workflow_dispatch:
+  push:
+    paths: [release-plan.json]
+permissions:
+  contents: write
+concurrency:
+  group: mobile-lab-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate release plan and download APK
+        id: plan
+        shell: python
+        run: |
+          import json, os, re, hashlib, urllib.request
+          from pathlib import Path
+          p = json.loads(Path('release-plan.json').read_text())
+          if p.get('verified') is not True:
+              print('Release remains blocked until fresh-install and lab login validation pass.')
+              raise SystemExit(0)
+          assert re.fullmatch(r'v[0-9]+\.[0-9]+\.[0-9]+-lab-x86_64', p['tag'])
+          a = p['apk']
+          assert a['url'].startswith('http://13.140.249.12/mobile-lab/')
+          assert re.fullmatch(r'[0-9a-f]{64}', a['sha256']) and 0 < a['bytes'] < 2000000000
+          path = Path('CABAL-RESURRECTION-x86_64.apk')
+          with urllib.request.urlopen(a['url'], timeout=60) as src, path.open('wb') as dst:
+              h = hashlib.sha256(); size = 0
+              while True:
+                  b = src.read(1048576)
+                  if not b: break
+                  size += len(b)
+                  assert size <= a['bytes']
+                  dst.write(b); h.update(b)
+          assert size == a['bytes'] and h.hexdigest() == a['sha256']
+          Path('SHA256SUMS.txt').write_text(a['sha256'] + '  ' + path.name + '\n')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write('ready=true\ntag=' + p['tag'] + '\n')
+      - name: Publish emulator test prerelease
+        if: steps.plan.outputs.ready == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.plan.outputs.tag }}
+        run: |
+          gh release create "$TAG" CABAL-RESURRECTION-x86_64.apk SHA256SUMS.txt --prerelease --title "CABAL RESURRECTION EP36 emulator lab" --notes "x86_64 Android emulator test only. ARM64 phones are not supported. Connects only to the EP36 test environment. See README for current limitations."
