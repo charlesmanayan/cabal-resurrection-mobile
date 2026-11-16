@@ -5,7 +5,7 @@
   "apk": {
     "url": "http://13.140.249.12/mobile-lab/CABAL-RESURRECTION-0.17.0-x86_64.apk",
     "bytes": 102285085,
-    "sha256": "c52049f579301997a002e3d395db448d55150b144684103e3263c8804a70695e"
+    "sha256": "6e5877ed11bfbcfdb19afa004c86d7ae11de8ac272dee1c41e840f9be4321ad6"
   },
   "x86_64": {
     "data": {
@@ -17,7 +17,7 @@
     "engine": {
       "url": "http://13.140.249.12/mobile-lab/resurrection-v17-x86_64-libmain.so",
       "bytes": 42790912,
-      "sha256": "e9671003f9a89bf0c7a07c20fb19bd593ba600702da22b9e0dae6d764076eb49"
+      "sha256": "e35bc1d1758c94b4b60500704761b78e24adcaba7a6d9d7c653bcce33f63b9f3"
     }
   },
   "validationOnly": true,
