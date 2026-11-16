@@ -1,0 +1,14 @@
+{
+  "verified": false,
+  "tag": "v0.17.0-lab-x86_64",
+  "apk": {
+    "url": "http://13.140.249.12/mobile-lab/CABAL-RESURRECTION-0.17.0-x86_64.apk",
+    "bytes": 102285085,
+    "sha256": "68808a50d224ddf602a576b5e6de0248600a2ef8717e2a46a316184f2d0cb27a"
+  },
+  "pending": [
+    "Complete public runtime archive validation",
+    "Fresh installation test",
+    "Native v17 lab login test"
+  ]
+}
