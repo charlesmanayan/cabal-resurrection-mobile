@@ -38,7 +38,7 @@
     "engine": {
       "url": "http://13.140.249.12/mobile-lab/arm64-ep36-candidate.so",
       "bytes": 37945344,
-      "sha256": "bd1fb2ac43c128dfacf08bbe66297bc454279867e25b708182179641eec13395"
+      "sha256": "07b79a3561d5057df80aabc946431742844c77ba8cbe62955af1cd03f58bc1c8"
     },
     "libraries": {
       "bytes": 338073581,
