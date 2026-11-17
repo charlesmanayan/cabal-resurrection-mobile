@@ -1,11 +1,11 @@
 {
   "status": "ready",
-  "versionCode": 180004,
-  "versionName": "0.18.3-arm64-test",
+  "versionCode": 180005,
+  "versionName": "0.18.4-arm64-test",
   "apk": {
-    "url": "http://13.140.249.12/mobile-lab/CABAL-RESURRECTION-ARM64-v0.18.3-TEST.apk",
+    "url": "http://13.140.249.12/mobile-lab/CABAL-RESURRECTION-ARM64-v0.18.4-TEST.apk",
     "bytes": 109150219,
-    "sha256": "f809ddf9a8cd432195f7bf732524091a1daae27e69f904f4241e3d3a3fb15af3"
+    "sha256": "1aae5b55d22ff7ef8e8f2b9dcdef8bf4eb660e7cdd31bb0fbe4bf4e51daa4171"
   },
   "x86_64": {
     "data": {
@@ -38,7 +38,7 @@
     "engine": {
       "url": "http://13.140.249.12/mobile-lab/arm64-ep36-candidate.so",
       "bytes": 37945344,
-      "sha256": "d8fb3af348148ade0f48bbe596585b1d51256a691710865a5d7a7717b0eefa09"
+      "sha256": "bd1fb2ac43c128dfacf08bbe66297bc454279867e25b708182179641eec13395"
     },
     "libraries": {
       "bytes": 338073581,
