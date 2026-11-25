@@ -1,0 +1,39 @@
+name: Sync ARM64 testing registry
+on:
+  push:
+    paths:
+      - update-arm64-testing.json
+      - .github/workflows/sync-arm64-testing-registry.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: arm64-testing-registry
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify runtime registry
+        shell: python
+        run: |
+          import json,hashlib,urllib.request
+          from pathlib import Path
+          m=json.loads(Path('update-arm64-testing.json').read_text())
+          assert m['versionCode']==180019
+          e=m['arm64-v8a']['engine']
+          assert e['url'].startswith('https://cabal-resurrection.online/mobile-lab/')
+          with urllib.request.urlopen(e['url'],timeout=90) as response:
+              h=hashlib.sha256();size=0
+              while True:
+                  b=response.read(1048576)
+                  if not b:break
+                  h.update(b);size+=len(b)
+          assert h.hexdigest()==e['sha256'] and size==e['bytes']
+          Path('RUNTIME-SHA256SUMS.txt').write_text(e['sha256']+'  '+e['url'].rsplit('/',1)[1]+'\n')
+      - name: Update testing release metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh release upload v0.18.19-arm64-testing update-arm64-testing.json RUNTIME-SHA256SUMS.txt --clobber
