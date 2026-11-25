@@ -1,0 +1,37 @@
+name: Publish ARM64 180019 testing build
+on:
+  push:
+    paths: [.github/workflows/publish-arm64-180019.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: arm64-180019-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download and verify testing artifacts
+        shell: python
+        run: |
+          import urllib.request,hashlib,json
+          from pathlib import Path
+          base='https://cabal-resurrection.online/mobile-lab/'
+          manifest=json.load(urllib.request.urlopen(base+'combat-20261125-160751.json'))
+          expected='d73fe33202ea2f56c1299c17a8c12a3d79d452ae35fcc6007baa155f92441b61'
+          apk=Path('CABAL-RESURRECTION-ARM64-180019.apk')
+          urllib.request.urlretrieve(base+apk.name,apk)
+          assert hashlib.sha256(apk.read_bytes()).hexdigest()==expected
+          assert manifest['versionCode']==180019
+          assert manifest['apk']['sha256']==expected
+          assert manifest['arm64-v8a']['engine']['sha256']=='ed617b0a98969064e0d15837dd8b4e978e775b8f3ccacb4bcc87786333653e8d'
+          Path('update-arm64-testing.json').write_text(json.dumps(manifest,indent=2))
+          Path('SHA256SUMS.txt').write_text(expected+'  '+apk.name+'\n')
+          Path('TESTING-NOTES.md').write_text('ARM64 CABAL263 testing build 180019. Includes Force Wing model/effect index validation, null model cleanup, current item synchronization and existing protocol adapters. Native A07 wing safety tests passed. Full multiplayer regression remains pending. Dungeon gate interaction, shops, body/gender appearance and Server 2 entry require further testing. This is not a fully playable/stable release. No production game services or databases were modified. Android requires approval to install an APK update. Existing app data should be retained by installing over the previous signed package.')
+      - name: Publish prerelease
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh release create v0.18.19-arm64-testing CABAL-RESURRECTION-ARM64-180019.apk update-arm64-testing.json SHA256SUMS.txt TESTING-NOTES.md --prerelease --latest=false --title "CABAL Resurrection ARM64 180019 — testing" --notes-file TESTING-NOTES.md
