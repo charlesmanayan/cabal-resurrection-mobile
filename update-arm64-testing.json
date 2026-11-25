@@ -36,9 +36,9 @@
       "unpackedBytes": 11392339789
     },
     "engine": {
-      "url": "https://cabal-resurrection.online/mobile-lab/state-263-f8525e295938.so",
+      "url": "https://cabal-resurrection.online/mobile-lab/state-263-a13d527fc632.so",
       "bytes": 37945344,
-      "sha256": "f8525e2959388804eddecc71d8a4257194e3790f31c3df59e95503eba59231d2"
+      "sha256": "a13d527fc6321284a92b549f7b07676b91e18fda1f1a05d8b3806d9f7feb9f6a"
     },
     "libraries": {
       "bytes": 338060428,
@@ -64,9 +64,9 @@
     "wingSafetyUnitTests": "passed on A07",
     "multiplayerWorldRegression": "pending",
     "releaseScope": "ARM64 testing only",
-    "playerSpawnLayoutUnitTests": "passed on A07 using captured PC263 record",
+    "playerSpawnLayoutUnitTests": "passed on A07: four real batches of 3/4 players; complete record and tail preservation; malformed shape rejection",
     "assistantBuffGuardUnitTests": "passed on A07; valid descriptor preserved",
     "playerVisibilityAndGenderLiveCheck": "pending"
   },
-  "runtimeRevision": "2026-11-25-assistant-buff-sentinel"
+  "runtimeRevision": "2026-11-25-player-spawn-batches"
 }
