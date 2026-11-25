@@ -1,0 +1,71 @@
+{
+  "status": "ready",
+  "versionCode": 180019,
+  "versionName": "0.18.19-arm64-testing",
+  "apk": {
+    "url": "https://github.com/charlesmanayan/cabal-resurrection-mobile/releases/download/v0.18.19-arm64-testing/CABAL-RESURRECTION-ARM64-180019.apk",
+    "bytes": 120279354,
+    "sha256": "d73fe33202ea2f56c1299c17a8c12a3d79d452ae35fcc6007baa155f92441b61"
+  },
+  "x86_64": {
+    "data": {
+      "url": "https://cabal-resurrection.online/mobile-lab/arm64-game-libraries-v2.tar.gz",
+      "bytes": 5706587559,
+      "sha256": "1baf446ea5a7c71e33776d8913a0d6a938fe388cd60f90cdf7298f9c012c9214",
+      "unpackedBytes": 11392339789
+    },
+    "engine": {
+      "url": "https://cabal-resurrection.online/mobile-lab/arm64-production-263-engine.so",
+      "bytes": 42790912,
+      "sha256": "e35bc1d1758c94b4b60500704761b78e24adcaba7a6d9d7c653bcce33f63b9f3"
+    }
+  },
+  "validationOnly": true,
+  "phoneVerified": false,
+  "translatedArmVerified": false,
+  "worldEntryVerified": false,
+  "touchMovementVerified": true,
+  "allEp36AccountsEnabled": true,
+  "automaticApkDownload": true,
+  "automaticInstallerLaunch": true,
+  "arm64-v8a": {
+    "data": {
+      "url": "http://13.140.249.12/mobile-lab/runtime-v16-public.tar.gz",
+      "bytes": 5706587559,
+      "sha256": "1baf446ea5a7c71e33776d8913a0d6a938fe388cd60f90cdf7298f9c012c9214",
+      "unpackedBytes": 11392339789
+    },
+    "engine": {
+      "url": "https://cabal-resurrection.online/mobile-lab/state-263-75132efe73a0.so",
+      "bytes": 37945344,
+      "sha256": "75132efe73a0843773f18d64a8b806c155a92c077cdc3022fe59d4141c1ab38e"
+    },
+    "libraries": {
+      "bytes": 338060428,
+      "sha256": "8fe55b70efc46977f6f25e89b316846affc20f33713a602d71b3f61f055491fb",
+      "unpackedBytes": 415337378,
+      "url": "https://cabal-resurrection.online/mobile-lab/arm64-game-libraries-v2.tar.gz"
+    },
+    "audioPlaybackDisabled": true,
+    "layoutPatch": {
+      "bytes": 14923271,
+      "sha256": "9ed48df85754ff4c75dbeafd6f0fd0c2deed76356887988279ad302b01e986cd",
+      "unpackedBytes": 91174503,
+      "url": "https://cabal-resurrection.online/mobile-lab/production-items-20261125-130843.tar.gz"
+    }
+  },
+  "clientConfig": {
+    "url": "https://cabal-resurrection.online/mobile-lab/language.enc",
+    "bytes": 181,
+    "sha256": "8e0979feda238010901a5487b8dab3c7031874016ca1191f1b67f686f8d372a0"
+  },
+  "combatDiagnosticOnly": true,
+  "validation": {
+    "wingSafetyUnitTests": "passed on A07",
+    "multiplayerWorldRegression": "pending",
+    "releaseScope": "ARM64 testing only",
+    "playerSpawnLayoutUnitTests": "passed on A07 using captured PC263 record",
+    "playerVisibilityAndGenderLiveCheck": "pending"
+  },
+  "runtimeRevision": "2026-11-25-player-spawn-prefix"
+}
